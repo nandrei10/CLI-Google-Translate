@@ -11,14 +11,14 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv, "f:l:")
     except getopt.GetoptError:
-        print ('Usage: gtranslate -f <filename> -l <lang>')
+        print ('Usage: python gtranslate.py -f <filename> -l <lang>')
         print ('Parameters:')
         print ('    -f <filename>: path to input filename to be translated')
         print ('    -l <lang>: output language, can be one of "en", "it" or "de"')
         sys.exit(2)
         
     if len(opts) == 0 or len(opts) > 2:
-        print ('Usage: gtranslate -f <filename> -l <lang>')
+        print ('Usage: python gtranslate.py -f <filename> -l <lang>')
         print ('Parameters:')
         print ('    -f <filename>: path to input filename to be translated')
         print ('    -l <lang>: output language, can be one of "en", "it" or "de"')
@@ -26,7 +26,7 @@ def main(argv):
         
     for opt, arg in opts:
         if opt == '-h':
-            print ('Usage: gtranslate -f <filename> -l <lang>')
+            print ('Usage: python gtranslate.py -f <filename> -l <lang>')
             print ('Parameters:')
             print ('    -f <filename>: path to input filename to be translated')
             print ('    -l <lang>: output language, can be one of "en", "it" or "de"')
