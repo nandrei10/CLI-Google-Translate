@@ -11,25 +11,16 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv, "f:l:")
     except getopt.GetoptError:
-        print ('Usage: python gtranslate.py -f <filename> -l <lang>')
-        print ('Parameters:')
-        print ('    -f <filename>: path to input filename to be translated')
-        print ('    -l <lang>: output language, can be one of "en", "it" or "de"')
+        _script_usage()
         sys.exit(2)
         
     if len(opts) == 0 or len(opts) > 2:
-        print ('Usage: python gtranslate.py -f <filename> -l <lang>')
-        print ('Parameters:')
-        print ('    -f <filename>: path to input filename to be translated')
-        print ('    -l <lang>: output language, can be one of "en", "it" or "de"')
+        _script_usage()
         sys.exit(2)
         
     for opt, arg in opts:
         if opt == '-h':
-            print ('Usage: python gtranslate.py -f <filename> -l <lang>')
-            print ('Parameters:')
-            print ('    -f <filename>: path to input filename to be translated')
-            print ('    -l <lang>: output language, can be one of "en", "it" or "de"')
+            _script_usage()
             sys.exit()
         elif opt == '-f':
             input_file = arg
@@ -50,6 +41,12 @@ def gtranslate(line, language):
     translator = Translator()  
     result = translator.translate(line, dest=language)
     print (result.text)
+    
+def _script_usage():
+    print ('Usage: python gtranslate.py -f <filename> -l <lang>')
+    print ('Parameters:')
+    print ('    -f <filename>: path to input filename to be translated')
+    print ('    -l <lang>: output language, can be one of "en", "it" or "de"')
 
 if __name__ == "__main__":
     # run the main program
